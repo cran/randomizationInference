@@ -1,7 +1,7 @@
 \name{randInterval}
 \alias{randInterval}
-\title{Randomization-Based Interval}
-\description{Calculates randomization-based intervals for the specified estimands of interest and coverage levels.}
+\title{Randomization-Based Null Interval}
+\description{Calculates randomization-based intervals under the null hypothesis for the specified estimands of interest and coverage levels.}
 \usage{randInterval(results, coverage = 0.95)}
 \arguments{
   \item{results}{
@@ -14,7 +14,7 @@
 
 \details{If multiple tests are conducted simultaneously, users should be wary of multiple comparisons and make adjustments accordingly (e.g., Bonferroni corrections).}
 
-\value{A randomization-based interval (or multiple intervals) with the specified coverage level.}
+\value{A randomization-based interval (or multiple intervals) under the null hypothesis with the specified coverage level.}
 
 \seealso{\code{\link{randTest}}, \code{\link{randPlot}}}
 

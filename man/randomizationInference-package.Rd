@@ -3,20 +3,20 @@
 \alias{randomizationInference}
 \docType{package}
 \title{Flexible Randomization-Based Inference}
-\description{Randomization-based p-values and intervals for a wide variety of experimental scenarios, with corresponding visualizations.}
+\description{Randomization-based p-values and null intervals for a wide variety of experimental scenarios, with corresponding visualizations.}
 \details{
   \tabular{ll}{
     Package: \tab randomizationInference\cr
     Type: \tab Package\cr
-    Version: \tab 1.0.0\cr
-    Date: \tab 2013-09-09\cr
+    Version: \tab 1.0.1\cr
+    Date: \tab 2013-12-02\cr
     License: \tab GPL-2\cr
-    Main functions: \tab \code{\link{randTest}}, \code{\link{randInterval}}, \code{\link{randPlot}}\cr
+    Main functions: \tab \code{\link{randTest}}, \code{\link{randPlot}}, \code{\link{randInterval}}\cr
   }
 
   The \code{randomizationInference} package conducts randomization-based inference for a wide variety
   of experimental scenarios. The package leverages a potential outcomes framework to output
-  randomization-based p-values and intervals for any estimand of interest, according to the specified
+  randomization-based p-values and null intervals for any estimand of interest, according to the specified
   null and alternative hypotheses.  The package also creates visualizations of randomization
   distributions and can test multiple test statistics simultaneously.
 }

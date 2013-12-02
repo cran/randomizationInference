@@ -5,7 +5,7 @@
 \usage{zeroEffect(y, w, w_new)}
 \arguments{
   \item{y}{
-    a vector of outcomes.
+    a vector or matrix of outcomes.
   }
   \item{w}{
     a vector or matrix of assignments.

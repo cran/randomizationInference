@@ -5,7 +5,7 @@
 \usage{withinBlockEffects(y, w, calcOptions)}
 \arguments{
   \item{y}{
-    a vector of outcomes.
+    a vector or matrix of outcomes.
   }
   \item{w}{
     a vector or matrix of assignments.

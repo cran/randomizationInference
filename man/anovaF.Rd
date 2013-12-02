@@ -5,10 +5,10 @@
 \usage{anovaF(y, w, calcOptions = NULL)}
 \arguments{
   \item{y}{
-    a vector of outcomes.
+    a vector or matrix of outcomes.
   }
   \item{w}{
-    a vector of assignments.
+    a vector or matrix of assignments.
   }
   \item{calcOptions}{
     a list of options for calculating the analysis of variance (ANOVA) F statistic (if necessary).

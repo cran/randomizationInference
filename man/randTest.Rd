@@ -9,7 +9,7 @@
     null = NULL, alternative = c("two.sided", "greater", "less"))}
 \arguments{
   \item{y}{
-    a vector of outcomes.
+    a vector or matrix of outcomes.
   }
   \item{w}{
     a vector (or matrix, when multiple treatment factors are present) of assignments.
