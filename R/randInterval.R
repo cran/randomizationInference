@@ -1,4 +1,4 @@
-#calculate a randomization-based interval for the estimand based on empirical randomization distribution
+#calculate a randomization-based interval for the test statistic based on empirical randomization distribution
 #input: results object outputted by randTest(), coverage level (defaults to .95),
 #output: randomization-based interval for the test statistic or vector of test statistics
 

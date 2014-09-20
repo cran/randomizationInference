@@ -1,7 +1,7 @@
 \name{diffMeansVector}
 \alias{diffMeansVector}
 \title{Vector of Pairwise Differences of Mean Outcomes}
-\description{Calculates the differences of mean outcomes for multiple specified treatment factors and specified pairs of comparison levels.}
+\description{Calculates the differences of mean observed outcomes for multiple specified treatment factors and specified pairs of comparison levels.}
 \usage{diffMeansVector(y, w, calcOptions)}
 \arguments{
   \item{y}{
@@ -24,7 +24,7 @@ If \code{calcOptions$factors} is specified, its length must equal the number of 
 If unspecified, \code{calcOptions$factors} defaults to an appropriately-sized vector of \code{1}'s.
 }
 
-\value{A vector of differences of mean outcomes.}
+\value{A vector of differences of mean observed outcomes.}
 
 \author{Joseph J. Lee and Tirthankar Dasgupta}
 

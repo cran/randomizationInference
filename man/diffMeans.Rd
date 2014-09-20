@@ -1,7 +1,7 @@
 \name{diffMeans}
 \alias{diffMeans}
 \title{Single Pairwise Difference of Mean Outcomes}
-\description{Calculates the difference of mean outcomes for a specified treatment factor and specified pair of comparison levels.}
+\description{Calculates the difference of mean observed outcomes for a specified treatment factor and specified pair of comparison levels.}
 \usage{diffMeans(y, w, calcOptions = NULL)}
 \arguments{
   \item{y}{
@@ -18,7 +18,7 @@
   }
 }
 
-\value{The difference of mean outcomes.}
+\value{The difference of mean observed outcomes.}
 
 \author{Joseph J. Lee and Tirthankar Dasgupta}
 

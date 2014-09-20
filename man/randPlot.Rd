@@ -41,13 +41,13 @@ If multiple tests are conducted simultaneously, users should be wary of multiple
 w = c(rep(0,5), rep(1,5))
 y = rnorm(10, mean = 0, sd = 1)
 ## Two-sided test
-twoSidedTest = randTest(y, w, nperm = 50, calcTestStat = diffMeans)
+twoSidedTest = randTest(y, w, nrand = 50, calcTestStat = diffMeans)
 randPlot(twoSidedTest)
 
 ## Reading comprehension pre- and post-test example
 data(reading)
 ## Testing within-block pairwise effects
-readingTest=randTest(y = reading$Diff1, w = reading$Group, nperm = 50,
+readingTest=randTest(y = reading$Diff1, w = reading$Group, nrand = 50,
     calcTestStat = withinBlockEffects,
     calcOptions = list(block = reading$Block,
         pairs = rbind(c("Basal", "DRTA"), c("Basal", "Strat"),

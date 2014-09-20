@@ -2,10 +2,10 @@
 \alias{randTest}
 \title{Randomization-Based Hypothesis Testing}
 \description{Conducts randomization-based hypothesis tests according to the specified test statistic(s), assignment mechanism, and null and alternative hypotheses.}
-\usage{randTest(y, w, nperm, calcTestStat, calcOptions = NULL,
+\usage{randTest(y, w, nrand, calcTestStat, calcOptions = NULL,
     calcPO = zeroEffect, poOptions = NULL,
-    randOptions=list(type = c("complete", "block", "Latin"),
-        block = NULL, row = NULL, col = NULL),
+    randOptions=list(type = c("complete", "block", "Latin", "user.defined"),
+        block = NULL, row = NULL, col = NULL), userRand = NULL, userOptions = NULL,
     null = NULL, alternative = c("two.sided", "greater", "less"))}
 \arguments{
   \item{y}{
@@ -14,8 +14,8 @@
   \item{w}{
     a vector (or matrix, when multiple treatment factors are present) of assignments.
   }
-  \item{nperm}{
-    a number specifying the desired number of random permutations.
+  \item{nrand}{
+    a number specifying the desired number of random hypothetical assignments.
   }
   \item{calcTestStat}{
     a function to calculate the specified test statistic(s).
@@ -31,6 +31,12 @@
   }
   \item{randOptions}{
     a list of options governing the random assignment mechanism.
+  }
+  \item{userRand}{
+    a function to generate random assignments (if necessary).
+  }
+  \item{userOptions}{
+    a list of options governing the user-defined random assignment mechanism (if necessary).
   }
   \item{null}{
     a number or numeric vector specifying the comparison value(s) under the null hypothesis.
@@ -55,6 +61,9 @@
   If unspecified, \code{randOptions$type} defaults to \code{"complete"}.
   If \code{randOptions$type} equals \code{"block"}, then \code{randOptions$block} must be specified.
   If \code{randOptions$type} equals \code{"Latin"}, then \code{randOptions$row} and \code{randOptions$col} must be specified.
+  If \code{randOptions$type} equals \code{"user.defined"}, then \code{userRand} must be specified.
+
+  The inputs to \code{userRand} are \code{nrand} and \code{userOptions} (if necessary).
 
   If \code{null} is specified, its length must equal the length of the output of \code{calcTestStat}.
   If unspecified, \code{null} defaults to \code{0} or an appropriately sized vector of \code{0}'s.
@@ -64,7 +73,7 @@
 
 \value{A list containing the following elements:
   \item{perm_stats}{
-    a vector or matrix of permuted test statistics.
+    a vector or matrix of hypothetical test statistic values.
   }
   \item{obs_stat}{
     the observed test statistic value(s).
@@ -101,12 +110,12 @@ Moore, David S., and George P. McCabe (1989). Introduction to the Practice of St
 w = c(rep(0,5), rep(1,5))
 y = rnorm(10, mean = 0, sd = 1)
 ## Two-sided test
-twoSidedTest = randTest(y, w, nperm = 50, calcTestStat = diffMeans)
+twoSidedTest = randTest(y, w, nrand = 50, calcTestStat = diffMeans)
 ## One-sided test
-oneSidedTest = randTest(y, w, nperm = 50, calcTestStat = diffMeans,
+oneSidedTest = randTest(y, w, nrand = 50, calcTestStat = diffMeans,
     alternative = "greater")
 ## Two=sided test with non-zero null hypothesis
-nonZeroTest = randTest(y, w, nperm = 50, calcTestStat = diffMeans,
+nonZeroTest = randTest(y, w, nrand = 50, calcTestStat = diffMeans,
     calcPO = constEffect, poOptions = list(tau = 2), null = 2)
 
 ## Randomized block design example
@@ -114,7 +123,7 @@ nonZeroTest = randTest(y, w, nperm = 50, calcTestStat = diffMeans,
 x = rep(1:3,4)
 w_block = rep(1:4,3)
 y_block = rnorm(12, mean = x, sd = 1)
-blockTest = randTest(y_block, w_block, nperm = 50,
+blockTest = randTest(y_block, w_block, nrand = 50,
     calcTestStat = anovaF,
     calcOptions = list(block = x),
     randOptions = list(type = "block", block = x))
@@ -126,7 +135,7 @@ w_latin = c("C","D","B","A","A","B","D","C",
     "D","C","A","B","B","A","C","D")
 y_latin = c(235,236,218,268,251,241,227,229,
     234,273,274,226,195,270,230,225)
-latinTest = randTest(y_latin, w_latin, nperm = 50,
+latinTest = randTest(y_latin, w_latin, nrand = 50,
     calcTestStat = anovaF,
     calcOptions = list(row = row, col = col),
     randOptions = list(type = "Latin", row = row, col = col))
@@ -139,25 +148,25 @@ ST = rep(c(-1,1), 4)
 w_fac = cbind(OT, CP, ST)
 y_fac = c(67,79,61,75,59,90,52,87)
 ## Testing the main effect of factor "OT"
-facTest1 = randTest(y_fac, w_fac, nperm = 50, calcTestStat = diffMeans,
+facTest1 = randTest(y_fac, w_fac, nrand = 50, calcTestStat = diffMeans,
     calcOptions = list(factor = 1, pair = c(-1,1)))
 ## Testing all three main effects simultaneously
-facTest2 = randTest(y_fac, w_fac, nperm = 50,
+facTest2 = randTest(y_fac, w_fac, nrand = 50,
     calcTestStat = diffMeansVector, calcOptions = list(factors = 1:3,
         pairs = matrix(rep(c(-1,1),3),ncol=2,byrow=TRUE)))
 ## Testing all contrasts simultaneously
 w_facNew = cbind(OT, CP, ST, OT*CP, OT*ST, CP*ST, OT*CP*ST)
-facTest3 = randTest(y_fac, w_facNew, nperm = 50,
+facTest3 = randTest(y_fac, w_facNew, nrand = 50,
     calcTestStat = diffMeansVector, calcOptions = list(factors = 1:7,
         pairs = matrix(rep(c(-1,1),7),ncol=2,byrow=TRUE)))
 
 ## Reading comprehension pre- and post-test example
 data(reading)
 ## Ignoring blocks
-readingTest1=randTest(y = reading$Diff1, w = reading$Group, nperm = 50,
+readingTest1=randTest(y = reading$Diff1, w = reading$Group, nrand = 50,
     calcTestStat = anovaF)
 ## Testing within-block pairwise effects
-readingTest2=randTest(y = reading$Diff1, w = reading$Group, nperm = 50,
+readingTest2=randTest(y = reading$Diff1, w = reading$Group, nrand = 50,
     calcTestStat = withinBlockEffects,
     calcOptions = list(block = reading$Block,
         pairs = rbind(c("Basal", "DRTA"), c("Basal", "Strat"),
