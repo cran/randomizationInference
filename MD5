@@ -1,4 +1,4 @@
-e82f2d276a13aba2aded7062f631c5bc *DESCRIPTION
+4dbc5592a61e87a80cc29463c055560b *DESCRIPTION
 694e271c1c677d47e72db83f500fa03d *NAMESPACE
 958d6c712354c0d41d3c4031936bf458 *R/anovaF.R
 aef88fa9bfc307fb62163675f44b1345 *R/blockRand.R
@@ -8,7 +8,7 @@ aef88fa9bfc307fb62163675f44b1345 *R/blockRand.R
 dcf5059834f58b86208a7ef31963c79e *R/diffMeansVector.R
 bea435fa544c1ab97d0b77f68a11ad27 *R/latinRand.R
 ee1ff102afa29a78474ee8ec7dd5f082 *R/randInterval.R
-6b79348905e1857f0d47b50bcf154511 *R/randPlot.R
+dd696e7949767e84afb19e73f8fc614e *R/randPlot.R
 28df9b6da4785c61a3f5c36fb130e7af *R/randTest.R
 68f680c96ba1c417b3520acd9d692c76 *R/withinBlockEffects.R
 1624cae94038e3af2b02aada5f554d2a *R/zeroEffect.R
@@ -21,9 +21,9 @@ f302c574b7ab17de9642871da96b83ee *man/diffMeans.Rd
 4227131ddb5968f4b060bc94c79e1f0b *man/diffMeansVector.Rd
 37d1ace227fc1fc4fcb2a3cb8314bc4f *man/latinRand.Rd
 ae62b85cd829baa21ddc7f0764b2af70 *man/randInterval.Rd
-a879c9635af5a54821ba1c7af5cf429f *man/randPlot.Rd
+187d4095b41dec3d6f4d734894d24292 *man/randPlot.Rd
 210543314c5897acb9a55dee7be9a859 *man/randTest.Rd
-63982e82211da3cf9a6415c2772dfb32 *man/randomizationInference-package.Rd
+c208b8415c1f059a643483b94c14ce66 *man/randomizationInference-package.Rd
 517e88e1a2ece3a36f4347eb64859b81 *man/reading.Rd
 1f9415d1aee462acba4017894390e8e5 *man/withinBlockEffects.Rd
 4c3c153696f6b91b3f57f0574b78b2dc *man/zeroEffect.Rd

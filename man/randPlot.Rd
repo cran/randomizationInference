@@ -2,7 +2,7 @@
 \alias{randPlot}
 \title{Randomization-Based Plot}
 \description{Plots observed test statistics against their randomization distributions and against the randomization-based intervals for their corresponding estimands.}
-\usage{randPlot(results, coverage = 0.95,
+\usage{randPlot(results, coverage = 0.95, breaks = 10,
     plotDim = c(length(results$obs_stat), 1))}
 \arguments{
   \item{results}{
@@ -10,6 +10,9 @@
   }
   \item{coverage}{
     a number specifying the desired coverage level (defaults to \code{0.95}).
+  }
+  \item{breaks}{
+    a value specifying the histogram break pattern (defaults to 10).
   }
   \item{plotDim}{
     a numeric vector (of length 2) specifying the desired plot dimensions (if necessary, defaults to \code{c(length(results$obs_stat), 1)}).
@@ -55,7 +58,7 @@ readingTest=randTest(y = reading$Diff1, w = reading$Group, nrand = 50,
             c("Basal", "Strat"), c("DRTA", "Strat")),
         blockindex = c(rep(1,3), rep(2,3))),
     randOptions = list(type = "block", block = reading$Block))
-randPlot(readingTest, plotDim = c(2,3))
+randPlot(readingTest, breaks = 20, plotDim = c(2,3))
 }
 
 \keyword{methods}

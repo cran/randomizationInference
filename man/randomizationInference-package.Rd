@@ -8,8 +8,8 @@
   \tabular{ll}{
     Package: \tab randomizationInference\cr
     Type: \tab Package\cr
-    Version: \tab 1.0.2\cr
-    Date: \tab 2014-09-20\cr
+    Version: \tab 1.0.3\cr
+    Date: \tab 2015-01-07\cr
     License: \tab GPL-2\cr
     Main functions: \tab \code{\link{randTest}}, \code{\link{randPlot}}, \code{\link{randInterval}}\cr
   }
@@ -26,7 +26,7 @@
 \author{
   Joseph J. Lee and Tirthankar Dasgupta
 
-  Maintainer: Joseph J. Lee <lee26@fas.harvard.edu>
+  Maintainer: Joseph J. Lee <joseph.j.lee@post.harvard.edu>
 }
 \references{
 Wu, C. F. J. and Hamada, M. (2009) Experiments, Planning, Analysis and Optimization (2nd ed), Wiley.
