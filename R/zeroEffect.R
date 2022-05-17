@@ -1,5 +1,5 @@
-#zero treatment effect
+# zero treatment effect
 
-zeroEffect=function(y,w,w_new){
-	y
+zeroEffect <- function(y, w, w_new) {
+  y
 }

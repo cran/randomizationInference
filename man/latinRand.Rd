@@ -31,9 +31,12 @@ If \code{w} is a matrix, the permutations occur by row.
 \seealso{\code{\link{completeRand}}, \code{\link{blockRand}}}
 
 \examples{
-w = c("C","D","B","A","A","B","D","C","D","C","A","B","B","A","C","D")
-row = rep(1:4,4)
-col = c(rep(1,4),rep(2,4),rep(3,4),rep(4,4))
+w <- c(
+  "C", "D", "B", "A", "A", "B", "D", "C",
+  "D", "C", "A", "B", "B", "A", "C", "D"
+)
+row <- rep(1:4, 4)
+col <- c(rep(1, 4), rep(2, 4), rep(3, 4), rep(4, 4))
 latinRand(w, nrand = 5, row, col)
 }
 

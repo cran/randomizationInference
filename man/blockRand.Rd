@@ -28,12 +28,12 @@ If \code{w} is a matrix, the permutations occur by row.
 \seealso{\code{\link{completeRand}}, \code{\link{latinRand}}}
 
 \examples{
-w1 = c(0,1,0,1,0,1,0,1)
-block = c(0,0,0,0,1,1,1,1)
+w1 <- c(0, 1, 0, 1, 0, 1, 0, 1)
+block <- c(0, 0, 0, 0, 1, 1, 1, 1)
 blockRand(w1, nrand = 5, block)
 
-w2 = c(0,0,1,1,0,0,1,1)
-blockRand(w = cbind(w1,w2), nrand = 5, block)
+w2 <- c(0, 0, 1, 1, 0, 0, 1, 1)
+blockRand(w = cbind(w1, w2), nrand = 5, block)
 }
 
 \keyword{methods}
